@@ -1,13 +1,26 @@
 <?php
     require_once "classes/Student.php";
     require_once "classes/Teacher.php";
+    require_once "classes/classroom.php";
+    require_once "classes/ClassTeacher.php";
 
     $student1 = new Student("Jan", 18, "ZSK");
     $student2 = new Student("Damian", 19, "WSB");
-    $teacher1 = new Teacher("Jan Kowalski", 45, "Programownanie");
 
-    $newStudent = null;
-    $newTeacher = null;
+    $classroom = new Classroom("ZSK");
+
+    $classroom -> addStudent($student1);
+    $classroom -> addStudent($student2);
+
+    echo "<h2>Klasa: </h2>".$classroom -> getHtml();
+
+    $teacher1 = new Teacher("Jan Kowalski", 45, "Programownanie");
+    $classteacher1 = new ClassTeacher("Andrzej Nowak", 39, "PHP", "ZSK");
+
+    echo "<h2> Wychowawcy: </h2>".$classteacher1 -> getInfo();
+
+    #$newStudent = null;
+    #$newTeacher = null;
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $action = $_POST["action"] ?? "";

@@ -2,7 +2,7 @@
     require_once "Person.php";
 
     class Teacher extends Person {
-        private string $subject;
+        protected string $subject;
 
         public function __construct(string $name, int $age, string $subject)
         {
